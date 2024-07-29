@@ -1,5 +1,5 @@
-# cognizent_github
-all the assesment aolution will be updated here 
+# DN3.0_5017427_DipayanMandal
+all the assesment solution will be updated here 
 <br>
 on weekly basis.
 
