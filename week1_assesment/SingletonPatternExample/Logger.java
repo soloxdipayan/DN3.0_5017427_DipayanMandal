@@ -13,12 +13,7 @@ public class Logger {
         return instance;
     }
 
-    // methode to verify that only one instance of Logger
-    // is created and used across the application.
     public static void logMsg(String msg) {
         System.out.println("log- " + msg);
     }
 }
-
-// test class to verify that only one instance of Logger is
-// created and used across the application
