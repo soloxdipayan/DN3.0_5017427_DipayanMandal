@@ -5,7 +5,6 @@ public class CashAppAdapter implements PaymentProcessor {
         this.cashApp = cashApp;
     }
 
-    @Override
     public void processPayment(double amount) {
         cashApp.makePayment(amount);
     }
