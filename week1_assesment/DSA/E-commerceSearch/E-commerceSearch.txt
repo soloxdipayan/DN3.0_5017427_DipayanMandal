@@ -1,0 +1,44 @@
+1)  Explain Big O notation and how it helps in analyzing algorithms.
+    
+    Big O notation describes the upper bound of the time complexity of an algorithm, providing an approximation of the worst-case scenario as the input size grows. 
+    It helps in understanding how the runtime of an algorithm scales with the size of the input.
+
+
+2) Describe the best, average, and worst-case scenarios for search operations.
+    
+    Best-Case Scenario: The scenario where the algorithm performs the fewest operations. For example, in a search operation, finding the desired element on the first try.
+    
+    Average-Case Scenario: The expected scenario where the algorithm performs an average number of operations across all possible inputs.
+    
+    Worst-Case Scenario: The scenario where the algorithm performs the maximum number of operations. This is often the focus in Big O analysis, as it provides an upper bound on performance.
+
+
+
+3) Compare the time complexity of linear and binary search algorithms.
+
+    Linear Search:
+
+Best-Case: O(1) — The target is the first element.
+Average-Case: O(n) — On average, half the array is checked.
+Worst-Case: O(n) — The target is the last element or not present.
+
+    Binary Search:
+
+Best-Case: O(1) — The target is the middle element.
+Average-Case: O(log n) — The array is repeatedly halved.
+Worst-Case: O(log n) — The target is at the extreme ends or not present.
+
+
+
+4) Discuss which algorithm is more suitable for your platform and why.
+
+    Linear Search: Suitable for small datasets or unsorted arrays.
+    Binary Search: More suitable for large datasets where the array is sorted, as it significantly reduces the number of comparisons needed.
+
+
+
+
+
+
+
+
