@@ -1,1 +1,1 @@
-this directory is to add the week one assignment question from the cognizent javaFSE Digital-Nurture_3.0
+this directory is to add the week one assignment question in their respective folders from the cognizent javaFSE Digital-Nurture_3.0
