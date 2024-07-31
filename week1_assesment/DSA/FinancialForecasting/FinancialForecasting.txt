@@ -1,0 +1,33 @@
+1) Explain the concept of recursion and how it can simplify certain problems.
+    
+    
+    Recursion is a programming technique where a function calls itself in order to solve a problem. 
+    A recursive function typically consists of two main parts:
+
+        Base Case: The condition under which the recursion stops. This is essential to prevent infinite recursion and stack overflow.
+        
+        Recursive Case: The part of the function where it calls itself with a modified argument, working towards reaching the base case.
+
+2)	Discuss the time complexity of your recursive algorithm.
+
+        The time complexity of the above recursive solution is O(n), where n is the number of years. 
+        This is because the function makes a recursive call for each year until the base case (years == 0) is reached.
+
+
+
+
+3) o	Explain how to optimize the recursive solution to avoid excessive computation.
+
+
+To optimize the recursive solution and avoid excessive computation, we can use hash maps or memoization. 
+Memoization involves storing the results of expensive function calls and reusing them when the same inputs occur again. 
+This technique reduces the time complexity by avoiding redundant calculations.
+
+
+
+
+
+
+
+
+
