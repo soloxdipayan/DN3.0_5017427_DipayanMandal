@@ -1,4 +1,4 @@
-public class Test {
+public class Test2 {
     public static void main(String args[]) {
         // test word document factory
         DocumentFactory wordfact = new WordDocumentFactory();

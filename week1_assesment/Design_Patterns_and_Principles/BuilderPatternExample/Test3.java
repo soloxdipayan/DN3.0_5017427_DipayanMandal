@@ -1,4 +1,4 @@
-public class Test {
+public class Test3 {
     public static void main(String[] args) {
         // Creating a basic computer
         Computer Computer = new Computer.Builder()

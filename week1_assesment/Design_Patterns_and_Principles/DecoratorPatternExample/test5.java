@@ -1,4 +1,4 @@
-public class test {
+public class test5 {
     public static void main(String[] args) {
         Notifier emailNotifier = new EmailNotifier();
         Notifier smsNotifier = new SMSNotifierDecorator(emailNotifier);

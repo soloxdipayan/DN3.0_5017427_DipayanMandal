@@ -1,4 +1,4 @@
-public class Test {
+public class Test1 {
     @SuppressWarnings("static-access")
     public static void main(String args[]) {
         Logger log1 = Logger.getInstance();
