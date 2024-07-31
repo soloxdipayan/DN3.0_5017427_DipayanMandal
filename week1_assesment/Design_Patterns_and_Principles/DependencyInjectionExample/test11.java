@@ -1,14 +1,18 @@
 public class test11 {
     public static void main(String[] args) {
-    
-        CustomerRepository customerRepository = new CustomerRepositoryImpl();
-
-        // Inject the repository 
+ 
+        CustomerRepositoryImpl customerRepository = new CustomerRepositoryImpl();
         CustomerService customerService = new CustomerService(customerRepository);
 
-        //  find a customer
-        Customer customer = customerService.getCustomerById("1");
-        System.out.println("Customer ID: " + customer.getId());
-        System.out.println("Customer Name: " + customer.getName());
+        Customer customer = customerService.getCustomerById("123");
+   
+        if (customer != null) {
+            System.out.println(customer);
+        } else {
+            System.out.println("Customer not found");
+        }
+
+
+
     }
 }

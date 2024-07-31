@@ -1,10 +1,13 @@
-public class Customer {
+// Define Customer Class
+class Customer {
     private String id;
     private String name;
+    private String email;
 
-    public Customer(String id, String name) {
+    public Customer(String id, String name, String email) {
         this.id = id;
         this.name = name;
+        this.email = email;
     }
 
     public String getId() {
@@ -13,5 +16,14 @@ public class Customer {
 
     public String getName() {
         return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer ID: " + id + ", Name: " + name + ", Email: " + email;
     }
 }

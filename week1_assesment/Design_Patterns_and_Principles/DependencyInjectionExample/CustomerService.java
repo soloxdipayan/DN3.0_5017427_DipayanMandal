@@ -1,8 +1,8 @@
-public class CustomerService {
-    private CustomerRepository customerRepository;
+class CustomerService {
+    private CustomerRepositoryImpl customerRepository;
 
-// Constructor injection
-    public CustomerService(CustomerRepository customerRepository) {
+    // Constructor Injection
+    public CustomerService(CustomerRepositoryImpl customerRepository) {
         this.customerRepository = customerRepository;
     }
 

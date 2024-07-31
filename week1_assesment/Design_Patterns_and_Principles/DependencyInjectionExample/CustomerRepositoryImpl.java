@@ -1,7 +1,10 @@
-public class CustomerRepositoryImpl implements CustomerRepository {
+class CustomerRepositoryImpl implements CustomerRepository {
     @Override
     public Customer findCustomerById(String id) {
        
-        return new Customer(id, "Dipayan Mandal");
+        if ("123".equals(id)) {
+            return new Customer("123", "Dipayan Mandal", "D.m@example.com");
+        }
+        return null;
     }
 }
