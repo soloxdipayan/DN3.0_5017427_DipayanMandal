@@ -1,10 +1,8 @@
 public class ECommerceSearchExample {
     public static void main(String[] args) {
         Product[] products = {
-            new Product("1", "Laptop", "Electronics"),
-            new Product("2", "Smartphone", "Electronics"),
-            new Product("3", "Book", "Books"),
-            new Product("4", "Shoes", "Fashion")
+            new Product("1", "Laptop", "Electronics"),new Product("2", "Smartphone", "Electronics"),
+            new Product("3", "Book", "Books"),new Product("4", "Shoes", "Fashion")
         };
 
         // Linear Search
@@ -18,7 +16,7 @@ public class ECommerceSearchExample {
 
         // Binary Search
     
-        foundProduct = BinarySearch.binarySearch(products, "1");
+        foundProduct = BinarySearch.binarySearch(products, "4");
         if (foundProduct != null) {
             System.out.println("Binary Search: Found " + foundProduct.getProductName());
         } else {
