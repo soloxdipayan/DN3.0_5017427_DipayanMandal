@@ -1,6 +1,10 @@
-## Scenario 1: The bank wants to apply a discount to loan interest rates for customers above 60 years old.
-#  o	Question: Write a PL/SQL block that loops through all customers, checks their age, and if they are above 60, apply a 1% discount to their current loan interest rates.
- ## answer
+# Scenario 1: The bank wants to apply a discount to loan interest rates for customers above 60 years old.
+## To chechk all the outputs we have to first use this pl/sql command to turn on the server output
+```plsql
+SET SERVEROUTPUT ON;
+```
+## Question1: Write a PL/SQL block that loops through all customers, checks their age, and if they are above 60, apply a 1% discount to their current loan interest rates.
+ ## Answer
 
 ```plsql
 DECLARE
@@ -26,9 +30,12 @@ BEGIN
             UPDATE loans
             SET loans.INTERESTRATE = v_loan_interest_rate
             WHERE loans.LOANID = rec.LOANID;
+
+            -- this is to view the output
+            DBMS_OUTPUT.PUT_LINE('Customer ID: ' || rec.CUSTOMERID ||  ', Updated Loan Interest Rate: ' || v_loan_interest_rate);
             
         END IF;
-        DBMS_OUTPUT.PUT_LINE('Customer ID: ' || rec.CUSTOMERID ||  ', Updated Loan Interest Rate: ' || v_loan_interest_rate);
+        
 
     END LOOP;
     
