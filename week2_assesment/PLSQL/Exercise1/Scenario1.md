@@ -1,5 +1,5 @@
 # Scenario 1: The bank wants to apply a discount to loan interest rates for customers above 60 years old.
-## To chechk all the outputs we have to first use this pl/sql command to turn on the server output
+## To chechk all the outputs using sqlplus we have to first use this pl/sql command to turn on the server output 
 ```plsql
 SET SERVEROUTPUT ON;
 ```
