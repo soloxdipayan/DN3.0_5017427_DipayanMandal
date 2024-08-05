@@ -25,7 +25,6 @@ CREATE OR REPLACE PACKAGE EmployeeManagement AS
         p_EmployeeID IN Employees.EmployeeID%TYPE
     ) RETURN NUMBER;
 END EmployeeManagement;
-
 /
 ```
 Package Body:
@@ -86,6 +85,5 @@ CREATE OR REPLACE PACKAGE BODY EmployeeManagement AS
             RETURN NULL;
     END CalculateAnnualSalary;
 END EmployeeManagement;
-
 /
 ```

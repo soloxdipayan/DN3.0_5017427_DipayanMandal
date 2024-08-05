@@ -23,6 +23,5 @@ BEGIN
     CLOSE account_cursor;
     COMMIT;
 END;
-
 /
 ```

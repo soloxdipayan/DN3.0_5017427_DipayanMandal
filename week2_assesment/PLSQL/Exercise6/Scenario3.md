@@ -23,6 +23,5 @@ BEGIN
     CLOSE loan_cursor;
     COMMIT;
 END;
-
 /
 ```

@@ -23,7 +23,6 @@ CREATE OR REPLACE PACKAGE CustomerManagement AS
         p_CustomerID IN Customers.CustomerID%TYPE
     ) RETURN NUMBER;
 END CustomerManagement;
-
 /
 ```
 Package Body:
@@ -83,7 +82,6 @@ CREATE OR REPLACE PACKAGE BODY CustomerManagement AS
             RETURN NULL;
     END GetCustomerBalance;
 END CustomerManagement;
-
 /
 ```
 

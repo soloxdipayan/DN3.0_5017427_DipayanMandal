@@ -20,7 +20,6 @@ CREATE OR REPLACE PACKAGE AccountOperations AS
         p_CustomerID IN Accounts.CustomerID%TYPE
     ) RETURN NUMBER;
 END AccountOperations;
-
 /
 ```
 Package Body:
@@ -75,6 +74,5 @@ CREATE OR REPLACE PACKAGE BODY AccountOperations AS
             RETURN NULL;
     END GetTotalBalance;
 END AccountOperations;
-
 /
 ```
