@@ -1,0 +1,120 @@
+# Scenario 1: Handle exceptions during fund transfers between accounts.
+## Question: Write a stored procedure SafeTransferFunds that transfers funds between two accounts. Ensure that if any error occurs (e.g., insufficient funds), an appropriate error message is logged and the transaction is rolled back.
+## Answer
+```sql
+CREATE OR REPLACE PROCEDURE SafeTransferFunds (
+    p_FromAccountID IN Accounts.AccountID%TYPE,
+    p_ToAccountID IN Accounts.AccountID%TYPE,
+    p_Amount IN NUMBER
+) IS
+    v_FromBalance Accounts.Balance%TYPE;
+    v_ToBalance Accounts.Balance%TYPE;
+BEGIN
+    -- Check FROM account for sufficient funds
+    SELECT Balance INTO v_FromBalance
+    FROM Accounts
+    WHERE AccountID = p_FromAccountID
+    FOR UPDATE;
+
+    IF v_FromBalance < p_Amount THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Insufficient funds in the source account.');
+    END IF;
+
+    -- Deduct amount from source account
+    UPDATE Accounts
+    SET Balance = Balance - p_Amount
+    WHERE AccountID = p_FromAccountID;
+
+    -- Add amount to destination account
+    UPDATE Accounts
+    SET Balance = Balance + p_Amount
+    WHERE AccountID = p_ToAccountID;
+
+    COMMIT;
+EXCEPTION
+    WHEN OTHERS THEN
+        ROLLBACK;
+        INSERT INTO ErrorLog (ErrorMessage, ErrorDate)
+        VALUES (SQLERRM, SYSDATE);
+        RAISE;
+END SafeTransferFunds;
+/
+```
+
+
+
+# Scenario 2: Manage errors when updating employee salaries.
+## Question: Write a stored procedure UpdateSalary that increases the salary of an employee by a given percentage. If the employee ID does not exist, handle the exception and log an error message.
+## Answer
+```sql
+CREATE OR REPLACE PROCEDURE UpdateSalary (
+    p_EmployeeID IN Employees.EmployeeID%TYPE,
+    p_Percentage IN NUMBER
+) IS
+    v_Salary Employees.Salary%TYPE;
+BEGIN
+    -- Check employee existence
+    SELECT Salary INTO v_Salary
+    FROM Employees
+    WHERE EmployeeID = p_EmployeeID
+    FOR UPDATE;
+
+    
+    UPDATE Employees
+    SET Salary = Salary + (Salary * p_Percentage / 100)
+    WHERE EmployeeID = p_EmployeeID;
+
+    COMMIT;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        INSERT INTO ErrorLog (ErrorMessage, ErrorDate)
+        VALUES ('Employee ID ' || p_EmployeeID || ' does not exist.', SYSDATE);
+    WHEN OTHERS THEN
+        ROLLBACK;
+        INSERT INTO ErrorLog (ErrorMessage, ErrorDate)
+        VALUES (SQLERRM, SYSDATE);
+        RAISE;
+END UpdateSalary;
+/
+```
+
+
+
+# Scenario 3: Ensure data integrity when adding a new customer.
+## Question: Write a stored procedure AddNewCustomer that inserts a new customer into the Customers table. If a customer with the same ID already exists, handle the exception by logging an error and preventing the insertion.
+## Answer
+To maintain the logging and log table has to be created.
+```sql
+CREATE TABLE ErrorLog (
+    ErrorID NUMBER PRIMARY KEY,
+    ErrorMessage VARCHAR2(4000),
+    ErrorDate DATE
+);
+```
+Stored procedure AddNewCustomer 
+```sql
+CREATE OR REPLACE PROCEDURE AddNewCustomer (
+    p_CustomerID IN Customers.CustomerID%TYPE,
+    p_Name IN Customers.Name%TYPE,
+    p_DOB IN Customers.DOB%TYPE,
+    p_Balance IN Customers.Balance%TYPE,
+    p_LastModified IN Customers.LastModified%TYPE
+) IS
+BEGIN
+    -- Insert the new customer
+    INSERT INTO Customers (CustomerID, Name, DOB, Balance, LastModified)
+    VALUES (p_CustomerID, p_Name, p_DOB, p_Balance, p_LastModified);
+
+    COMMIT;
+EXCEPTION
+    WHEN DUP_VAL_ON_INDEX THEN
+        INSERT INTO ErrorLog (ErrorMessage, ErrorDate)
+        VALUES ('Customer ID ' || p_CustomerID || ' already exists.', SYSDATE);
+    WHEN OTHERS THEN
+        ROLLBACK;
+        INSERT INTO ErrorLog (ErrorMessage, ErrorDate)
+        VALUES (SQLERRM, SYSDATE);
+        RAISE;
+END AddNewCustomer;
+/
+```
