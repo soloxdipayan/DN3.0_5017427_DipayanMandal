@@ -1,0 +1,22 @@
+# New Features in Spring Boot 3
+
+1. **Java 17 Support**:
+   - Spring Boot 3 fully supports Java 17, providing long-term support and modern language features.
+
+2. **GraalVM Native Image Support**:
+   - Compile your Spring Boot applications into native executables with GraalVM for faster startup and reduced memory usage.
+
+3. **Improved Observability**:
+   - Enhanced support for Micrometer with new metrics for better monitoring and observability.
+
+4. **Jakarta EE 9**:
+   - Migration from `javax` to `jakarta` packages as part of the adoption of Jakarta EE 9.
+
+5. **Enhanced AOT Compilation**:
+   - More optimized AOT processing for performance improvements.
+
+6. **Kubernetes Readiness**:
+   - Improved integration with Kubernetes, making it easier to run cloud-native applications.
+
+7. **Spring Native**:
+   - Spring Native has been integrated into Spring Boot for easier native compilation support.
